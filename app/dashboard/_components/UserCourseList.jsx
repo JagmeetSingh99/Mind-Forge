@@ -27,80 +27,72 @@ function UserCourseList() {
     }
 
     const NoCourseAvailable = () => (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" className="w-full max-w-md mx-auto mt-10">
-            <style>
-                {`
-                    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-                    text {
-                        font-family: Outfit, system-ui, sans-serif;
-                        font-weight: 500;
-                    }
-                `}
-            </style>
+        <div className="relative overflow-hidden mt-10 bg-indigo-50 rounded-xl border border-gray-100 p-8 max-w-xl mx-auto">
+            {/* Decorative patterns */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-30">
+                <div className="absolute top-8 left-4 w-12 h-12 rounded-full bg-white"></div>
+                <div className="absolute bottom-12 right-8 w-32 h-32 rounded-full bg-white"></div>
+                <div className="absolute top-24 right-12 w-8 h-8 rounded-full bg-white"></div>
+            </div>
 
-            <text x="200" y="100" textAnchor="middle" fontSize="28" fill="#e0e7ff" opacity="0.5">
-                NO COURSE AVAILABLE
-                <animate
-                    attributeName="y"
-                    values="102;98;102"
-                    dur="4s"
-                    repeatCount="indefinite" />
-            </text>
+            <div className="relative z-10 flex flex-col items-center justify-center">
+                <h3 className="text-2xl font-bold text-indigo-600 mb-2 relative">
+                    NO COURSE AVAILABLE
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-indigo-600 rounded-full"></div>
+                </h3>
 
-            <text x="200" y="100" textAnchor="middle" fontSize="28" fill="#6366f1">
-                NO COURSE AVAILABLE
-                <animate
-                    attributeName="y"
-                    values="100;96;100"
-                    dur="4s"
-                    repeatCount="indefinite" />
-            </text>
+                <p className="text-gray-600 text-center mt-4 mb-6">
+                    You haven't created any AI courses yet. Get started by creating your first course!
+                </p>
 
-            <line x1="100" y1="130" x2="300" y2="130" stroke="#6366f1" strokeWidth="2">
-                <animate
-                    attributeName="x1"
-                    values="200;100;200"
-                    dur="2s"
-                    repeatCount="indefinite" />
-                <animate
-                    attributeName="x2"
-                    values="200;300;200"
-                    dur="2s"
-                    repeatCount="indefinite" />
-                <animate
-                    attributeName="opacity"
-                    values="0;1;0"
-                    dur="2s"
-                    repeatCount="indefinite" />
-            </line>
+                <svg viewBox="0 0 200 100" className="w-full max-w-xs mx-auto">
+                    <line x1="40" y1="50" x2="160" y2="50" stroke="#6366f1" strokeWidth="2" strokeDasharray="8 4">
+                        <animate
+                            attributeName="stroke-dashoffset"
+                            from="0"
+                            to="24"
+                            dur="2s"
+                            repeatCount="indefinite" />
+                    </line>
 
-            <circle cx="200" cy="130" r="4" fill="#6366f1">
-                <animate
-                    attributeName="r"
-                    values="4;6;4"
-                    dur="2s"
-                    repeatCount="indefinite" />
-                <animate
-                    attributeName="opacity"
-                    values="1;0.5;1"
-                    dur="2s"
-                    repeatCount="indefinite" />
-            </circle>
-        </svg>
+                    <circle cx="100" cy="50" r="6" fill="#6366f1">
+                        <animate
+                            attributeName="r"
+                            values="4;6;4"
+                            dur="2s"
+                            repeatCount="indefinite" />
+                        <animate
+                            attributeName="opacity"
+                            values="1;0.5;1"
+                            dur="2s"
+                            repeatCount="indefinite" />
+                    </circle>
+                </svg>
+            </div>
+        </div>
     )
 
     return (
-        <div className='mt-10'>
-            <h2 className='font-bold text-xl'>My AI Courses</h2>
+        <div className="m-8 px-1 sm:px-2 ">
+            <div className="flex items-center mb-6">
+                <div className="h-8 w-1 bg-indigo-600 rounded-full mr-3"></div>
+                <h2 className="font-bold text-xl text-gray-800">My AI Courses</h2>
+            </div>
 
             {loading ? (
-                <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                    {[1, 2, 3, 4, 5].map((item, index) => (
-                        <div key={index} className='w-full mt-5 h-[270px] bg-slate-200 animate-pulse rounded-lg' />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    {[1, 2, 3].map((item, index) => (
+                        <div key={index} className="w-full h-[270px] bg-gray-100 rounded-xl overflow-hidden relative">
+                            <div className="absolute top-0 left-0 right-0 h-32 bg-gray-200 animate-pulse"></div>
+                            <div className="absolute top-36 left-4 w-3/4 h-5 bg-gray-200 animate-pulse rounded"></div>
+                            <div className="absolute top-44 left-4 w-1/2 h-4 bg-gray-200 animate-pulse rounded"></div>
+                            <div className="absolute bottom-4 left-4 right-20 h-8 bg-gray-200 animate-pulse rounded"></div>
+                            <div className="absolute right-0 top-0 bottom-0 w-14 bg-gray-200 animate-pulse"></div>
+                        </div>
                     ))}
                 </div>
             ) : courseList?.length > 0 ? (
-                <div className='grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {courseList?.map((course, index) => (
                         <CourseCard course={course} key={index} refreshData={() => getUserCourses()} />
                     ))}

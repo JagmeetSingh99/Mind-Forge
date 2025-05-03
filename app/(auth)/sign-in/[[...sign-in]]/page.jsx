@@ -1,5 +1,6 @@
 import { SignIn } from '@clerk/nextjs'
 
+
 export default function Page() {
     return (
         <section className="bg-white">
@@ -7,7 +8,9 @@ export default function Page() {
                 <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
                     <img
                         alt="AI Course Generation"
-                        src="https://silentbio.com/wp-content/uploads/2023/06/Captivate-Learners-With-An-Effective-Course-Using-Ai-Course-Generator.jpg"
+                        src= "illustration.svg"
+                    
+
                         className="absolute inset-0 h-full w-full object-cover opacity-80"
                     />
 

@@ -4,6 +4,7 @@ import { GenerateCourseLayout_AI } from "@/configs/AiModel";
 import { db } from "@/configs/db";
 import { CourseList } from "@/configs/schema";
 import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { HiClipboardDocumentCheck, HiLightBulb, HiMiniSquares2X2 } from "react-icons/hi2";
 import uuid4 from "uuid4";
@@ -12,7 +13,6 @@ import LoadingDialog from "./_components/LoadingDialog";
 import SelectCategory from "./_components/SelectCategory";
 import SelectOption from "./_components/SelectOption";
 import TopicDescription from "./_components/TopicDescription";
-import { useRouter } from "next/navigation";
 
 function CreateCourse() {
     const StepperOptions = [
