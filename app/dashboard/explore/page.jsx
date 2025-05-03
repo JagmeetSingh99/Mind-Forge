@@ -37,7 +37,7 @@ function Explore() {
 
     return (
         <div>
-            <h2 className="font-bold text-3xl">Explore More Projects</h2>
+            <h2 className="font-bold text-3xl text-white">Explore More Projects</h2>
             <p>Explore more projects build with AI by other users</p>
 
             {loading ? (
