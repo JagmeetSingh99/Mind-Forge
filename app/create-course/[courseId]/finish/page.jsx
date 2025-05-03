@@ -44,20 +44,6 @@ function FinishScreen({ params }) {
         <div className="px-10 md:px-20 lg:px-44 my-7">
             <h2 className="text-center font-bold text-2xl my-3 text-primary">Congrats! Your course is Ready</h2>
             <CourseBasicInfo course={course} refreshData={() => console.log()} edit = {false} />
-            <h2 className="mt-3 ">Course URL</h2>
-            <h2 className="text-center text-gray-400 border p-2 rounded-md flex gap-5 items-center">
-                {process.env.NEXT_PUBLIC_HOST_NAME}/course/{course?.courseId}
-                {isCopied ? (
-                    <HiMiniClipboardDocumentCheck
-                        className="h-5 w-5 cursor-pointer text-green-500"
-                    />
-                ) : (
-                    <HiOutlineClipboardDocumentCheck
-                        className="h-5 w-5 cursor-pointer"
-                        onClick={handleCopyClick}
-                    />
-                )}
-            </h2>
         </div>
     )
 }
