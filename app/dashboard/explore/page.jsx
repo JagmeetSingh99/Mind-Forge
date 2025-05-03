@@ -38,7 +38,7 @@ function Explore() {
     return (
         <div>
             <h2 className="font-bold text-3xl text-white">Explore More Projects</h2>
-            <p>Explore more projects build with AI by other users</p>
+            <p className="text-white">Explore more projects build with AI by other users</p>
 
             {loading ? (
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
